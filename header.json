@@ -1,0 +1,14 @@
+{
+    "header_version": 1,
+    "name": "Example Updatable Submod",
+    "description": "Example submod showcasing how updater works",
+    "author": "Booplicate",
+    "version": "0.1.0",
+    "updater": {
+        "provider": "git",
+        "settings": {
+            "url": "git@github.com:Booplicate/example-updatable-submod.git"
+        }
+    },
+    "modules": ["src/main"]
+}

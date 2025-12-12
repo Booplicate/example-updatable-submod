@@ -1,0 +1,26 @@
+init -999 python in example_updatable_submod:
+    import store
+    from store import mas_submod_utils
+
+    SUBMOD_NAME = "Example Updatable Submod"
+
+    @mas_submod_utils.on_submod_install(SUBMOD_NAME)
+    def on_install() -> None:
+        mas_submod_utils.submod_log.info(f"{SUBMOD_NAME} install hook called")
+
+init 5 python in example_updatable_submod:
+    @mas_submod_utils.on_submod_first_install(SUBMOD_NAME)
+    def on_first_install() -> None:
+        mas_submod_utils.submod_log.info(f"{SUBMOD_NAME} first-install hook called")
+
+    @mas_submod_utils.on_submod_update(SUBMOD_NAME, "0.1.0")
+    def on_update_0_1_0(update) -> None:
+        mas_submod_utils.submod_log.info(f"{SUBMOD_NAME} v0.1.0 update hook: {update}")
+
+    @mas_submod_utils.on_submod_update(SUBMOD_NAME, "0.2.0")
+    def on_update_0_2_0(update) -> None:
+        mas_submod_utils.submod_log.info(f"{SUBMOD_NAME} v0.2.0 update hook: {update}")
+
+init 15 python in example_updatable_submod:
+    VERS = "0.1.0"
+    mas_submod_utils.submod_log.info(f"{SUBMOD_NAME} loaded, version: {VERS}")
