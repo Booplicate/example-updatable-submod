@@ -3,7 +3,7 @@
     "name": "Example Updatable Submod",
     "description": "Example submod showcasing how updater works",
     "author": "Booplicate",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "updater": {
         "provider": "git",
         "settings": {
